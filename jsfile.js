@@ -48,11 +48,16 @@ function handleTouchMove(event) {
 function handleSwipe() {
     const swipeThreshold = 50; // Ajuste conforme necessário
 
-    if (touchStartX - touchEndX > swipeThreshold) {
+    // Defina uma distância mínima para considerar como um deslize
+    const minSwipeDistance = window.innerWidth / 2;
+
+    if (touchStartX - touchEndX > minSwipeDistance) {
         // Deslize para a esquerda (próxima slide)
         plusSlides(1);
-    } else if (touchEndX - touchStartX > swipeThreshold) {
+        touchStartX = touchEndX; // Reinicia a posição inicial
+    } else if (touchEndX - touchStartX > minSwipeDistance) {
         // Deslize para a direita (anterior slide)
         plusSlides(-1);
+        touchStartX = touchEndX; // Reinicia a posição inicial
     }
 }

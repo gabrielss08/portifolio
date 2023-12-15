@@ -49,7 +49,7 @@ function handleSwipe() {
     const swipeThreshold = 50; // Ajuste conforme necessário
 
     // Defina uma distância mínima para considerar como um deslize
-    const minSwipeDistance = window.innerWidth / 2;
+    const minSwipeDistance = window.innerWidth / 3;
 
     if (touchStartX - touchEndX > minSwipeDistance) {
         // Deslize para a esquerda (próxima slide)
